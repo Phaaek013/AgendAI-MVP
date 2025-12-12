@@ -1,0 +1,11 @@
+node_modules
+.env
+.pnp*
+dist
+.next
+.cache
+coverage
+postgres_data
+__pycache__
+*.pyc
+.env.local

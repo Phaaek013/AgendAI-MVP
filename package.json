@@ -1,0 +1,17 @@
+{
+  "name": "agendai-mono",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "dev:agent": "cd apps/agent && uvicorn main:app --reload --port 8002",
+    "lint": "turbo run lint",
+    "format": "turbo run format"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "turbo": "^2.0.4"
+  }
+}

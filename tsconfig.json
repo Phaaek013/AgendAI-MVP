@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ESNext",
+    "lib": ["dom", "dom.iterable", "es2021"],
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@agendai/shared/*": ["packages/shared/src/*"],
+      "@agendai/db": ["packages/db/src"],
+      "@agendai/db/*": ["packages/db/src/*"]
+    }
+  },
+  "exclude": ["node_modules", "apps/agent"]
+}
