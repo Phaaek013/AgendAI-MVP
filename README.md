@@ -31,7 +31,8 @@ Comandos diretos:
 
 ## Endpoints mínimos
 - **API**
-  - `GET /health`
+  - `GET /health` — **liveness probe** (sempre retorna 200 se o servidor está rodando)
+  - `GET /ready` — **readiness probe** (200 se DATABASE_URL configurado e DB acessível, 503 caso contrário)
   - `POST /webhooks/whatsapp` → valida payload e salva em `webhook_events`
   - `POST /messages/send` → grava em `outbox` e retorna 202
 - **Agent**
