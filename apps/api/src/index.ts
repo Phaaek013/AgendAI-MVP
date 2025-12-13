@@ -11,13 +11,23 @@ const server = Fastify({
   },
 });
 
+// LIVENESS: servidor está rodando (não depende de DB)
 server.get("/health", async () => {
+  return { status: "ok" };
+});
+
+// READINESS: pronto para receber tráfego (depende de config + DB)
+server.get("/ready", async (_request, reply) => {
+  if (!process.env.DATABASE_URL) {
+    return reply.code(503).send({ status: "not_ready", reason: "DATABASE_URL missing" });
+  }
+
   try {
-    await pool.query("select 1");
-    return { status: "ok" };
+    await pool.query("SELECT 1");
+    return { status: "ready" };
   } catch (error) {
-    server.log.error({ error }, "db health failed");
-    return { status: "degraded" };
+    server.log.error({ error }, "db readiness check failed");
+    return reply.code(503).send({ status: "not_ready", reason: "db_unreachable" });
   }
 });
 
