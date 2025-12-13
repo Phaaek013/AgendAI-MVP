@@ -6,12 +6,21 @@
     "dev": "turbo run dev --parallel",
     "dev:agent": "cd apps/agent && uvicorn main:app --reload --port 8002",
     "lint": "turbo run lint",
-    "format": "turbo run format"
+    "format": "turbo run format",
+    "test": "jest"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@typescript-eslint/eslint-plugin": "^7.16.0",
     "@typescript-eslint/parser": "^7.16.0",
     "eslint-config-prettier": "^9.1.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.6",
     "turbo": "^2.0.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "eslint": "8.57.0"
+    }
   }
 }
